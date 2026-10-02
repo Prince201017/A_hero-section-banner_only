@@ -1,0 +1,252 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "project": "AURELIA CREATIVE",
+  "activeTransition": {
+    "id": "editorial-dissolve",
+    "name": "Crossfade / Dissolve (Specified)",
+    "category": "Photographic Analog Dissolve",
+    "status": "Production Active",
+    "specifications": {
+      "mode": "Simultaneous slow opacity interpolation with micro-scale breathing",
+      "incomingDurationMs": 2200,
+      "outgoingDurationMs": 2000,
+      "easingCurve": [0.4, 0.0, 0.2, 1.0],
+      "easingDescription": "Cubic-bezier(0.4, 0.0, 0.2, 1.0) — Deliberately slow and smooth editorial film ease",
+      "incomingScale": { "initial": 1.028, "animate": 1.0 },
+      "outgoingScale": { "initial": 1.0, "exit": 0.992 },
+      "incomingOpacity": { "initial": 0.0, "animate": 1.0 },
+      "outgoingOpacity": { "initial": 1.0, "exit": 0.0 },
+      "viewport": "Fixed 100vw × 100vh with object-fit: cover, no layout displacement",
+      "textureContinuity": "Continuous persistent SVG noise grain & 35mm soft-light print scanlines overlay",
+      "typographyAnchoring": "Permanent fixed overlay of fine-art atelier serif brandmasthead and navigation"
+    }
+  },
+  "implementedOptions": [
+    {
+      "id": "editorial-dissolve",
+      "index": 1,
+      "name": "Crossfade / Dissolve (Specified)",
+      "category": "Dissolve & Interpolation",
+      "duration": "2.2s incoming / 2.0s outgoing",
+      "easing": "cubic-bezier(0.4, 0.0, 0.2, 1.0)",
+      "motionFormula": {
+        "initial": { "opacity": 0, "scale": 1.028 },
+        "animate": { "opacity": 1, "scale": 1.0 },
+        "exit": { "opacity": 0, "scale": 0.992 }
+      },
+      "description": "Gradual simultaneous opacity interpolation paired with a subtle, graceful scale settle and continuous analog film grain overlay.",
+      "idealUseCase": "High-fashion luxury editorial, fine-art portfolio, cinema lookbook"
+    },
+    {
+      "id": "pure-crossfade",
+      "index": 2,
+      "name": "Static Crossfade",
+      "category": "Dissolve",
+      "duration": "1.8s",
+      "easing": "cubic-bezier(0.22, 1.0, 0.36, 1.0)",
+      "motionFormula": {
+        "initial": { "opacity": 0 },
+        "animate": { "opacity": 1 },
+        "exit": { "opacity": 0 }
+      },
+      "description": "Pure linear opacity crossfade with absolutely static geometry (1.0 scale).",
+      "idealUseCase": "Minimalist art galleries, classical architecture monographs"
+    },
+    {
+      "id": "slide-left",
+      "index": 3,
+      "name": "Horizontal Slide",
+      "category": "Spatial Push",
+      "duration": "1.0s",
+      "easing": "cubic-bezier(0.16, 1.0, 0.3, 1.0)",
+      "motionFormula": {
+        "initial": { "x": "100%", "opacity": 1 },
+        "animate": { "x": "0%", "opacity": 1 },
+        "exit": { "x": "-30%", "opacity": 0.6 }
+      },
+      "description": "Smooth filmstrip push from right to left with depth parallax dampening on outgoing slide.",
+      "idealUseCase": "Editorial lookbooks, fashion campaigns, sequential storytelling"
+    },
+    {
+      "id": "slide-up",
+      "index": 4,
+      "name": "Vertical Slide",
+      "category": "Spatial Push",
+      "duration": "1.0s",
+      "easing": "cubic-bezier(0.16, 1.0, 0.3, 1.0)",
+      "motionFormula": {
+        "initial": { "y": "100%", "opacity": 1 },
+        "animate": { "y": "0%", "opacity": 1 },
+        "exit": { "y": "-30%", "opacity": 0.6 }
+      },
+      "description": "Upward vertical magazine scroll with modern cinematic acceleration.",
+      "idealUseCase": "Magazine layout showcases, vertical phone lookbooks"
+    },
+    {
+      "id": "blur-dissolve",
+      "index": 5,
+      "name": "Lens Blur Dissolve",
+      "category": "Optical Defocus",
+      "duration": "1.4s incoming / 1.2s outgoing",
+      "easing": "cubic-bezier(0.22, 1.0, 0.36, 1.0)",
+      "motionFormula": {
+        "initial": { "opacity": 0, "filter": "blur(20px)" },
+        "animate": { "opacity": 1, "filter": "blur(0px)" },
+        "exit": { "opacity": 0, "filter": "blur(14px)" }
+      },
+      "description": "Simulates optical camera refocusing, transitioning from shallow bokeh into tack-sharp clarity.",
+      "idealUseCase": "Beauty, perfume campaigns, dreamlike atmospheric editorials"
+    },
+    {
+      "id": "wipe-right",
+      "index": 6,
+      "name": "Horizontal Wipe",
+      "category": "Clip-Path Mask",
+      "duration": "1.2s",
+      "easing": "cubic-bezier(0.65, 0.0, 0.35, 1.0)",
+      "motionFormula": {
+        "initial": { "clipPath": "polygon(0 0, 0 0, 0 100%, 0 100%)" },
+        "animate": { "clipPath": "polygon(0 0, 100% 0, 100% 100%, 0 100%)" },
+        "exit": { "opacity": 1 }
+      },
+      "description": "Crisp razor-sharp curtain reveal wiping from left edge to right edge.",
+      "idealUseCase": "Contemporary graphic design studios, haute-couture runway recaps"
+    },
+    {
+      "id": "wipe-down",
+      "index": 7,
+      "name": "Vertical Wipe",
+      "category": "Clip-Path Mask",
+      "duration": "1.2s",
+      "easing": "cubic-bezier(0.65, 0.0, 0.35, 1.0)",
+      "motionFormula": {
+        "initial": { "clipPath": "polygon(0 0, 100% 0, 100% 0, 0 0)" },
+        "animate": { "clipPath": "polygon(0 0, 100% 0, 100% 100%, 0 100%)" },
+        "exit": { "opacity": 1 }
+      },
+      "description": "Top-to-bottom curtain wipe reminiscent of an unfolding printed sheet.",
+      "idealUseCase": "Architectural monographs, design studio project drops"
+    },
+    {
+      "id": "center-iris",
+      "index": 8,
+      "name": "Center Iris",
+      "category": "Radial Mask",
+      "duration": "1.3s",
+      "easing": "cubic-bezier(0.22, 1.0, 0.36, 1.0)",
+      "motionFormula": {
+        "initial": { "clipPath": "circle(0% at 50% 50%)" },
+        "animate": { "clipPath": "circle(150% at 50% 50%)" },
+        "exit": { "opacity": 1 }
+      },
+      "description": "Vintage circular camera shutter aperture opening out from the center focal point.",
+      "idealUseCase": "Vintage photography exhibitions, retro 1960s/70s fashion"
+    },
+    {
+      "id": "diagonal-wipe",
+      "index": 9,
+      "name": "Diagonal Sweep",
+      "category": "Polygonal Mask",
+      "duration": "1.2s",
+      "easing": "cubic-bezier(0.22, 1.0, 0.36, 1.0)",
+      "motionFormula": {
+        "initial": { "clipPath": "polygon(0 0, 0 0, -25% 100%, -25% 100%)" },
+        "animate": { "clipPath": "polygon(0 0, 150% 0, 125% 100%, -25% 100%)" },
+        "exit": { "opacity": 1 }
+      },
+      "description": "Dynamic angled 45-degree diagonal blade wipe cutting across the frame.",
+      "idealUseCase": "Avant-garde typography sites, experimental digital art"
+    },
+    {
+      "id": "film-exposure",
+      "index": 10,
+      "name": "Studio Flash Exposure",
+      "category": "Photometric Luminance",
+      "duration": "1.3s incoming / 1.0s outgoing",
+      "easing": "cubic-bezier(0.22, 1.0, 0.36, 1.0)",
+      "motionFormula": {
+        "initial": { "opacity": 0, "filter": "brightness(2.2)" },
+        "animate": { "opacity": 1, "filter": "brightness(1.0)" },
+        "exit": { "opacity": 0, "filter": "brightness(1.6)" }
+      },
+      "description": "Emulates the burst of a high-power studio strobe / darkroom flash over-exposure.",
+      "idealUseCase": "Studio photography showcase, high-energy fashion runway"
+    }
+  ],
+  "transitionTaxonomyUniverse": {
+    "totalPossibleTransitions": "Unlimited via GLSL shaders, 35+ distinct core classifications in Web & Motion Design",
+    "categories": [
+      {
+        "category": "1. Opacity & Dissolve Transitions",
+        "count": 6,
+        "types": [
+          { "name": "Linear Crossfade", "tech": "CSS opacity", "feel": "Pure, simple, neutral" },
+          { "name": "Analog Editorial Dissolve", "tech": "Asymmetric cubic-bezier opacity + micro scale", "feel": "Cinematic, breathing, luxury" },
+          { "name": "Non-Additive Dissolve (Luma)", "tech": "Blend modes / luminance thresholding", "feel": "Film emulsion highlight bleed" },
+          { "name": "Dip to Black (Fade Out/In)", "tech": "Sequential opacity down to black then up", "feel": "Dramatic scene break / chapter finish" },
+          { "name": "Dip to White (Light Flash)", "tech": "Sequential opacity to pure white", "feel": "Flashbulb, dream memory, transcendent" },
+          { "name": "Color Grade Tint Dissolve", "tech": "CSS mix-blend-mode / sepia / duo-tone shift", "feel": "Artisan film print, vintage bleach bypass" }
+        ]
+      },
+      {
+        "category": "2. Spatial, Kinetic & Push Transitions",
+        "count": 6,
+        "types": [
+          { "name": "Horizontal Push Slide", "tech": "translate3d(x, 0, 0)", "feel": "Magazine horizontal spread" },
+          { "name": "Vertical Push Slide", "tech": "translate3d(0, y, 0)", "feel": "Scroll reel, film roll verticality" },
+          { "name": "Parallax Depth Slide", "tech": "Foreground & background moving at split velocities", "feel": "Three-dimensional space" },
+          { "name": "Zoom Through (Fly-Through)", "tech": "scale(3.0) + opacity exit into incoming scale(0.6)", "feel": "Immersive jump into focal subject" },
+          { "name": "3D Perspective Card Flip", "tech": "rotateY(180deg) + perspective(1200px)", "feel": "Editorial card turnover" },
+          { "name": "Isometric Angle Slide", "tech": "translate3d(x, y, 0) along 30-degree vector", "feel": "Architectural dynamic movement" }
+        ]
+      },
+      {
+        "category": "3. Clip-Path & Geometric Mask Transitions",
+        "count": 7,
+        "types": [
+          { "name": "Directional Curtain Wipe", "tech": "polygon() rectangular sweep", "feel": "Editorial clean edge" },
+          { "name": "Diagonal Blade Wipe", "tech": "polygon() 45-degree angle", "feel": "Edgy, dynamic, fashion forward" },
+          { "name": "Circular Iris Reveal", "tech": "circle() expanding from anchor point", "feel": "Classic cinematic shutter" },
+          { "name": "Elliptical Eye Reveal", "tech": "ellipse() stretching horizontally", "feel": "Cinematic widescreen anamorphic" },
+          { "name": "Venetian Blinds Split", "tech": "Multi-strip clip-path or CSS grid masks", "feel": "Architectural louvers, retro modernism" },
+          { "name": "Diamond / Rhombus Expand", "tech": "polygon(50% 0, 100% 50%, 50% 100%, 0 50%)", "feel": "Geometric luxury brand crest" },
+          { "name": "Split Curtain Gate", "tech": "Dual polygons opening from center outward", "feel": "Stage reveal, grand gallery doors" }
+        ]
+      },
+      {
+        "category": "4. Optical, Lens & Filter Transitions",
+        "count": 5,
+        "types": [
+          { "name": "Gaussian / Lens Blur Defocus", "tech": "filter: blur(px)", "feel": "Depth of field refocus" },
+          { "name": "Studio Strobe Flash", "tech": "filter: brightness(200%) + contrast", "feel": "High-fashion photographic flash" },
+          { "name": "Chromatic Aberration Split", "tech": "RGB color channel split via SVG filter / CSS drop-shadow", "feel": "Modern optics, prism distortion" },
+          { "name": "Anamorphic Flare Streak", "tech": "Horizontal motion blur + brightness streak", "feel": "Panavision / Cooke lens cinema" },
+          { "name": "Halftone Dot Screen Dissolve", "tech": "SVG filter halftone dot size transition", "feel": "Editorial print publication" }
+        ]
+      },
+      {
+        "category": "5. WebGL / Shader Fragment Transitions",
+        "count": 7,
+        "types": [
+          { "name": "Liquid Water Ripple Displacement", "tech": "GLSL sine/cosine displacement map", "feel": "Organic fluid luxury" },
+          { "name": "Perlin Noise Emulsion Melt", "tech": "GLSL simplex/perlin noise threshold", "feel": "Analog burning film, organic dissolve" },
+          { "name": "Voronoi Crystal Shatter", "tech": "GLSL cellular Voronoi tessellation", "feel": "Prismatic gemstone, avant-garde" },
+          { "name": "Pixelation Mosaic Dissolve", "tech": "GLSL downsampling pixel grid step", "feel": "Digital fashion, high-tech atelier" },
+          { "name": "Wind / Sand Particle Dispersion", "tech": "GLSL particle physics shred", "feel": "Ethereal, sculptural decay" },
+          { "name": "Page Curl (Skeuomorphic Leaf)", "tech": "GLSL cone deformer page peel", "feel": "Physical art book page turning" },
+          { "name": "Kaleidoscope Mirror Rotation", "tech": "GLSL polar coordinate symmetry", "feel": "Psychedelic haute-couture kaleidoscope" }
+        ]
+      },
+      {
+        "category": "6. Film Emulsion & Analog Print Transitions",
+        "count": 4,
+        "types": [
+          { "name": "Light Leak Burn", "tech": "Warm orange/cyan gradient blend burn-through", "feel": "35mm camera back opening" },
+          { "name": "Film Gate Jitter & Hair", "tech": "Micro vertical jitter + dust scratch artifacts", "feel": "Archival 16mm projection" },
+          { "name": "Double Exposure Print", "tech": "mix-blend-mode: screen / multiply cross-fade", "feel": "Artistic layered editorial portraiture" },
+          { "name": "Darkroom Developer Fade", "tech": "Inverted contrast slowly darkening into positive", "feel": "Silver halide chemical print reveal" }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "AURELIA CREATIVE",
+  "description": "An avant-garde artist management and production agency representing Australia's leading fashion photographers, stylists, and creative directors.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

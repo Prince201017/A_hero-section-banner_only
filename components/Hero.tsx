@@ -10,15 +10,15 @@ export function Hero() {
   const [currentView, setCurrentView] = useState<"banner" | "artists" | "agency">("banner");
 
   return (
-    <div className="relative h-screen w-screen h-[100dvh] w-[100dvw] overflow-hidden bg-[#0d0d0d] select-none">
-      {/* 1. Full-Bleed Image Transition Slideshow (Permanent Specified Crossfade / Dissolve) */}
-      <div className="absolute inset-0 h-full w-full pointer-events-none">
+    <div className="fixed inset-0 h-full w-full overflow-hidden bg-[#0d0d0d] select-none">
+      {/* 1. Full-Bleed Image Transition Slideshow (Isolated in z-0 stacking context) */}
+      <div className="absolute inset-0 z-0 isolate h-full w-full pointer-events-none">
         <HeroSlideshow />
         <GrainOverlay />
       </div>
 
       {/* 2. Top Minimal Navigation (Fine-Art Atelier Serif) */}
-      <header className="absolute top-0 left-0 right-0 z-20 px-4 sm:px-6 pt-3 sm:pt-4">
+      <header className="absolute top-0 left-0 right-0 z-30 transform-gpu px-4 sm:px-6 pt-3 sm:pt-4">
         <div className="w-full grid grid-cols-[1fr_auto_1fr] items-baseline">
           {/* LEFT: ARTISTS */}
           <div className="flex justify-start">
@@ -65,7 +65,7 @@ export function Hero() {
       </header>
 
       {/* 3. Centered Editorial Description */}
-      <div className="absolute top-10 sm:top-12 md:top-14 left-0 right-0 z-20 flex justify-center px-4 sm:px-6 pointer-events-none">
+      <div className="absolute top-10 sm:top-12 md:top-14 left-0 right-0 z-30 transform-gpu flex justify-center px-4 sm:px-6 pointer-events-none">
         <p
           className="max-w-[320px] sm:max-w-[460px] md:max-w-[620px] text-center text-white text-[13.5px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-serif font-light leading-[1.12] sm:leading-[1.16] tracking-[-0.01em]"
           style={{
@@ -81,14 +81,14 @@ export function Hero() {
       </div>
 
       {/* 4. Giant Brand Typography at Bottom Edge (Permanent Fine-Art Atelier) */}
-      <div className="absolute bottom-[1px] left-0 right-0 z-20 pointer-events-none px-2 sm:px-4 flex justify-center text-center">
+      <div className="absolute bottom-1 sm:bottom-2 left-0 right-0 z-30 transform-gpu pointer-events-none px-2 sm:px-4 flex justify-center items-end text-center">
         <h1
-          className="text-white uppercase w-full text-center select-none"
+          className="text-white uppercase w-full text-center select-none whitespace-nowrap"
           style={{
-            fontSize: "clamp(52px, 16.5vw, 290px)",
+            fontSize: "clamp(48px, min(16.5vw, 25vh), 290px)",
             fontWeight: 600,
             letterSpacing: "0.04em",
-            lineHeight: 0.82,
+            lineHeight: 0.85,
             fontFamily: "var(--font-serif, 'Cormorant Garamond', serif)",
             textShadow:
               "0 2px 10px rgba(0, 0, 0, 0.45), 0 8px 32px rgba(0, 0, 0, 0.35)",
@@ -98,12 +98,12 @@ export function Hero() {
         </h1>
       </div>
 
-      {/* 5. ARTISTS View: Clean White Full-Screen Page (No modal, no overlay) */}
+      {/* 5. ARTISTS View: Clean White Full-Screen Page */}
       {currentView === "artists" && (
         <ArtistsView onNavigate={(view) => setCurrentView(view)} />
       )}
 
-      {/* 6. AGENCY View: Clean White Full-Screen Page (No modal, no overlay) */}
+      {/* 6. AGENCY View: Clean White Full-Screen Page */}
       {currentView === "agency" && (
         <AgencyView onNavigate={(view) => setCurrentView(view)} />
       )}

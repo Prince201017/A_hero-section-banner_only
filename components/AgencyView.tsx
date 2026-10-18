@@ -11,7 +11,7 @@ export function AgencyView({ onNavigate }: AgencyViewProps) {
   const [perthOpen, setPerthOpen] = useState(false);
 
   return (
-    <div className="absolute inset-0 z-30 h-full w-full overflow-y-auto bg-white text-black select-none scroll-smooth">
+    <div className="absolute inset-0 z-50 h-full w-full overflow-y-auto bg-white text-black select-none scroll-smooth">
       {/* Sticky White Top Navigation */}
       <header className="sticky top-0 z-40 w-full bg-white px-4 sm:px-6 pt-3 pb-3 sm:pt-4 sm:pb-4 border-b border-black/[0.04]">
         <div className="w-full grid grid-cols-[1fr_auto_1fr] items-baseline">
